@@ -25,15 +25,17 @@ namespace MethodParameters
             Add(num1, num2);
 
             //get value for question 2 and send it to the CanVote method
-            int age = Convert.ToInt16(ageInput.Text);          
-
+            int age = Convert.ToInt16(ageInput.Text);
+            CanVote(age);
             //get values for question 3 and send them to the WelcomeUser method
-
+            WelcomeUser();
 
             //get value for question 4 and send it to the InchToCm method
 
-
+            InchToCm();
         }
+
+    
 
         /// 1. Create a method called Add, that accepts 2 int 
         /// parameters, x and y, adds them together, and then 
@@ -49,7 +51,8 @@ namespace MethodParameters
 
         public void Add(int x, int y)
         {
-
+            int sum =x + y;
+            q1Output.Text = $"{x} + {y} = {sum}";
         }
 
         /// 2. Create a method called CanVote, that accepts an 
@@ -64,7 +67,17 @@ namespace MethodParameters
         /// Input: 15
         /// You are not eligible to vote
 
-
+        public void CanVote(int voterAge)
+        {
+            if (voterAge > 17)
+            {
+                q2Output.Text = " you can vote";
+            }
+            else
+            {
+                q2Output.Text = " you can't vote";
+            }
+        }
 
         /// 3. Create a method called WelcomeUser, that accepts 2
         /// string parameters, name and pin. If the PIN is 1234
@@ -78,7 +91,22 @@ namespace MethodParameters
         /// 
         /// Input: Mr. T, 1234
         /// Welcome Mr. T
+        public void WelcomeUser()
+        {
+            int pin = Convert.ToInt16(pinInput.Text);
+            string name = userInput.Text;
 
+            if(pin == 1234)
+            {
+                q3Output.Text = $"Welcome {name}";
+            }
+            else
+            {
+                q3Output.Text = "Incoorect Pin";
+            }
+
+           
+        }
 
 
         /// 4. Create a method called InchToCm, that accepts a double 
@@ -94,6 +122,11 @@ namespace MethodParameters
         /// 3.4 inches is 8.636 cms
 
 
-
+        public void InchToCm()
+        {
+            double inches = Convert.ToInt16(inchesInput.Text);
+            double parameter = (int)(2.54 * inches);
+            q4Output.Text = $"{inches * 2.54}";
+        }
     }
 }
